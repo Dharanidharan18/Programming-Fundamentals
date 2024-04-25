@@ -1,27 +1,25 @@
 package com.chainsys.leaveManagement;
 
-//import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-
 public class LeaveManagementSystem {
+	
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Admin admin = new Admin();
        Leave leave = new Leave();
-//        ArrayList<String> LeaveType=new ArrayList<>();
-//
-//        LeaveType.add("SICKLEAVE");
-//        LeaveType.add("CASUALLEAVE");
-//        LeaveType.add("PERMISSION");
-
-        
+       
+   System.out.println();
+   System.out.println("Please enter any one option :");
+   System.out.println();    
+       
         while (true) {
             System.out.println("1. Add Employee and Set Password");
             System.out.println("2. Check Leave Eligibility and Grant Leave");
-            System.out.println("3. Exit");
+            System.out.println("3. Display Generl Holidays");
+            System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
 
@@ -63,8 +61,14 @@ public class LeaveManagementSystem {
                        
                     }
                     break;
-                   
+                 
                 case 3:
+                    System.out.println("Generl Holidays\n");
+                    
+                    GeneralHolidays.printGeneralHolidays();
+                    break;
+                    
+                case 4:
                     System.out.println("Exiting...");
                     scanner.close();
                     System.exit(0);
@@ -75,6 +79,37 @@ public class LeaveManagementSystem {
     }
 }
 
+class GeneralHolidays{
+	   
+	    public static void printGeneralHolidays() {
+	    	System.out.println("Dec 25, Wednesday - Christmas");
+	    	
+	    	 System.out.println("Jan 1 ,Monday New Years Day\r\n"
+	 		   		+ "Jan 15 ,Monday Pongal\r\n"
+	 		   		+ "Jan 16 ,Tuesday Thiruvalluvar Day\r\n"
+	 		   		+ "Jan 17 ,Wednesday Uzhavar Thirunal\r\n"
+	 		   		+ "Jan 25 ,Thursday Thai Poosam\r\n"
+	 		   		+ "Jan 26 ,Friday Republic Day\r\n"
+	 		   		+ "Mar 29 ,Friday Good Friday\r\n"
+	 		   		+ "Apr 1 ,Monday Annual closing of Accounts for Commercial Banks and Co-operative Banks\r\n"
+	 		   		+ "Apr 9 ,Tuesday Telugu New Year Day\r\n"
+	 		   		+ "Apr 11 ,Thursday Ramzan (Idul Fitr)\r\n"
+	 		   		+ "Apr 14 ,Sunday Tamil New Years Day and Dr.B.R.Ambedkars Birthday\r\n"
+	 		   		+ "Apr 21 ,Sunday Mahaveer Jayanthi\r\n"
+	 		   		+ "May 1 ,Wednesday May Day\r\n"
+	 		   		+ "Jun 17 ,Monday Bakrid(Idul Azha)\r\n"
+	 		   		+ "Jul 17 ,Wednesday Muharram\r\n"
+	 		   		+ "Aug 15 ,Thursday Independence Day\r\n"
+	 		   		+ "Aug 26 ,Monday Krishna Jayanthi\r\n"
+	 		   		+ "Sep 7 ,Saturday Vinayakar Chathurthi\r\n"
+	 		   		+ "Sep 16 ,Monday Milad-un-Nabi\r\n"
+	 		   		+ "Oct 2 ,Wednesday Gandhi Jayanthi\r\n"
+	 		   		+ "Oct 11 ,Friday Ayutha Pooja\r\n"
+	 		   		+ "Oct 12 ,Saturday Vijaya Dasami\r\n"
+	 		   		+ "Oct 31 ,Thursday Deepavali\r\n"
+	 		   		+ "Dec 25 ,Wednesday Christmas\n"); 
+	    }	   
+}
 
 class Employee {
     private int id;
@@ -135,7 +170,6 @@ class Admin {
 	        System.out.println("Employee added successfully. Employee ID: " + employee.getId());
 	    }
 
-	    // Method to set password for employee
 	    public void setPassword(int empId, String password) {
 	        Employee employee = employeeMap.get(empId);
 	        if (employee != null) {
@@ -147,14 +181,6 @@ class Admin {
 	    }
 	    
 	}
-
-
-
-//enum LeaveType {
-//    SICKLEAVE,
-//    CASUALLEAVE,
-//    PERMISSION
-//}
 
 class Leave {
    
@@ -169,3 +195,5 @@ class Leave {
         System.out.println("Leave granted successfully for Employee ID: " + empId);
     }
 }
+
+
