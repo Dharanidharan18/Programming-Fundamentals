@@ -159,15 +159,13 @@ class Admin {
 class Leave {
    
     public boolean canGrantLeave(Employee employee, String leaveType, int duration) {
-        // Your implementation here
-        // Check if employee has enough leaves, business rules, etc.
-        return true; // or false
+        
+        return true; 
     }
 
     
     public void grantLeave(int empId, String leaveType, int duration) {
-        // Your implementation here
-        // Update leave details, deduct leaves from employee, etc.
+        
         System.out.println("Leave granted successfully for Employee ID: " + empId);
     }
 }
